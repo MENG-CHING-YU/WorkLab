@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="20536_01_04" pageWidth="842" pageHeight="204" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7b0e045b-6ba3-4da6-871e-587d89aaa57a">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.948717100000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="240"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="subreportpath1" class="java.lang.String"/>
+	<parameter name="subreportpath2" class="java.lang.String"/>
+	<parameter name="subjectRowData1" class="java.util.List"/>
+	<parameter name="subjectRowData2" class="java.util.List"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="DATE1" class="java.lang.String"/>
+	<field name="DATE2" class="java.lang.String"/>
+	<field name="ORGAN" class="java.lang.String"/>
+	<detail>
+		<band height="120">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement key="textField-7" x="0" y="25" width="98" height="15" uuid="c3827440-7c97-45cd-bbf2-f785f1f45ef4"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[月   報]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="0" y="0" width="98" height="25" uuid="e3268255-b986-459b-b67d-6ac2a78c52d9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[公開類]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="98" y="0" width="466" height="40" uuid="cf4480d6-18a4-4e77-9bc6-f8ee1f159a3a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="5" bottomPadding="5">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="標楷體" size="10" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[每月終了後10日內編送]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="564" y="25" width="139" height="15" uuid="dde5a94a-21c5-4f66-9791-0122bd30f622">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[表號]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="564" y="0" width="139" height="25" uuid="7cbb2db2-9049-4bba-bbf5-98055f5a55cc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[編製機關]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="703" y="0" width="139" height="25" forecolor="#FF0000" uuid="2db26341-6631-4cfb-ae43-d8cada810eb8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[各直轄市、縣(市)政府、
+內政部指定特設主管建築機關]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="703" y="25" width="139" height="15" forecolor="#FF0000" uuid="cf8183b2-a67e-4d8f-b140-3dc9c2c8c52e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[20536-01-04-2]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-23" stretchType="RelativeToBandHeight" x="0" y="60" width="842" height="15" uuid="b8bda6c8-cba2-4ded-ad88-55941b11d9fe">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATE1}+"　　　　　　　　　　　　　　　　　　　　　　　　　　單位:件，棟，平方公尺，仟元"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="textField-8" x="0" y="75" width="98" height="45" uuid="451d8ec0-be1d-456f-877a-ad2c01dd58f2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[區 域 別]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="98" y="75" width="186" height="30" uuid="5aa0e206-c29c-42ca-9015-9c987d0289a7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總            計]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="98" y="105" width="47" height="15" uuid="1ec31b7d-3778-4aa0-bc45-04ff651511cf">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="192" y="105" width="92" height="15" uuid="135685b4-85b3-4f16-ba21-4d4a00c947ff">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="284" y="105" width="47" height="15" uuid="d817d7f3-b767-4c4f-b88b-c1df4452c2fc">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="378" y="105" width="92" height="15" uuid="00f10e96-293a-4893-b452-c72094184ff0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="470" y="105" width="47" height="15" uuid="625e8ba7-8d58-4e6d-9951-5a2e4fcf4e6a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="564" y="105" width="92" height="15" uuid="6e6c029a-6bc5-45b3-b8ee-060370cd4265">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="656" y="105" width="47" height="15" uuid="edbecfce-c9c3-4fd3-8958-0f92350b2e71">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="750" y="105" width="92" height="15" uuid="8f8a67ab-063b-4c94-93b5-f54fdf4e89d0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="284" y="75" width="186" height="30" uuid="c8cd8638-5ff9-4829-bd3f-dda7f9c41ed6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[磚構造]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="470" y="75" width="186" height="30" uuid="de93e3b5-9683-4244-a78b-6fd6eb6bf3b9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[木構造]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="656" y="75" width="186" height="30" uuid="02d5e5b2-8547-4505-ae0b-f64c1112fa5d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[鋼構造]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="145" y="105" width="47" height="15" uuid="47a437d9-8bbc-41b2-bfa9-515537f65c27">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="331" y="105" width="47" height="15" uuid="06a30cfa-ff00-4f94-9b8d-8e7bfa88d4cf">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="517" y="105" width="47" height="15" uuid="22cca872-fa66-4e74-bf3d-28314ac15414">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="703" y="105" width="47" height="15" uuid="8e188b4f-1d63-4b90-a92b-942c8df1d8a2">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-23" stretchType="RelativeToBandHeight" x="0" y="40" width="842" height="20" uuid="45565d1a-0180-4f73-a3ef-f4621e773052">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" size="16" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ORGAN}+"核發建築物拆除執照統計-按構造別分 "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport overflowType="Stretch">
+				<reportElement x="0" y="0" width="842" height="17" uuid="212613ce-b46f-42e2-9d38-4e4890b25193">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subjectRowData1})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportpath1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17">
+			<staticText>
+				<reportElement key="textField-8" x="0" y="0" width="842" height="17" uuid="f91d6059-3ad7-44dc-beb3-fb8958ae6ad4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="120">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-23" stretchType="RelativeToBandHeight" x="0" y="60" width="842" height="15" uuid="53a9f666-21b0-4712-beed-dab5fe4a8dc6">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATE1}+"　　　　　　　　　　　　　　　　　　　　　　　　　　單位:件，棟，平方公尺，仟元"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="textField-7" x="564" y="25" width="139" height="15" uuid="1dff52a2-ad68-45d0-8825-64c2d5a3c15e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[表號]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="564" y="0" width="139" height="25" uuid="89409abc-548f-439c-b3cd-67512f97ecad">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[編製機關]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="703" y="0" width="139" height="25" forecolor="#FF0000" uuid="31ed4c60-0fa6-4e31-9773-19500ba61ab2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[各直轄市、縣(市)政府、
+內政部指定特設主管建築機關]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="703" y="25" width="139" height="15" forecolor="#FF0000" uuid="920c7678-d808-45cf-96e9-1e3ac882cc65">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[20536-01-04-2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="98" y="0" width="466" height="40" uuid="6936d478-4da9-4846-aff6-92865bbcf1cb">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="5" bottomPadding="5">
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="標楷體" size="10" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[每月終了後10日內編送]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="0" y="0" width="98" height="25" uuid="a38d6fa5-9ae8-403c-b55c-f78e835a93e0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[公開類]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-7" x="0" y="25" width="98" height="15" uuid="a44d6d2c-f18d-4f1d-9bc2-7028b2c5df95"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[月   報]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="98" y="105" width="47" height="15" uuid="01b2ffe7-7f3e-4f83-9f13-8a62fd275929">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="192" y="105" width="92" height="15" uuid="3d31b0e8-0153-4351-8baa-3ca2dabdbf22">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="284" y="105" width="47" height="15" uuid="8ab8aa60-18ec-4b07-a38a-37322aba477f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="378" y="105" width="92" height="15" uuid="4efae3f8-520c-4c3c-808f-0286a714bfba">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="470" y="105" width="47" height="15" uuid="53731519-e573-4da3-a433-7201b2387c38">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="564" y="105" width="92" height="15" uuid="1e4f19f6-8085-4f6a-ade9-20433cf6de59">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="656" y="105" width="47" height="15" uuid="7699c12e-39b7-443c-bec4-8bc30ee0027a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[件數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="750" y="105" width="92" height="15" uuid="5bd43f63-0395-4b76-8878-1872f27f3a33">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[總樓地板面積]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="0" y="75" width="98" height="45" uuid="84985bd7-f160-4ace-be74-f8b9fea18bcf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[區 域 別]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="98" y="75" width="186" height="30" uuid="8ae0638f-cf1d-431d-92b1-9993c210c630">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[混凝土(含鋼筋混凝土)構造]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="284" y="75" width="186" height="30" uuid="cf76ca49-e80a-4fb6-9400-aed59afb276d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[鋼骨鋼筋混凝土構造]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="470" y="75" width="186" height="30" uuid="0a2fb710-90fe-4c52-be81-35102c728cd6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[冷軋型鋼構造]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="656" y="75" width="186" height="30" uuid="8e33ea3e-07eb-4e39-b02a-e541de502b76">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="標楷體" size="11" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[其他]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="703" y="105" width="47" height="15" uuid="257fe71d-8f86-4b08-99b1-b176f9a8be60">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="517" y="105" width="47" height="15" uuid="f9d22425-1f60-4bd6-ab9e-8aaaaf3b4422">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="331" y="105" width="47" height="15" uuid="4ed06541-c707-47fe-bc40-bd25fd889ebd">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="textField-8" x="145" y="105" width="47" height="15" uuid="f516863d-dd1b-4c9a-9e55-30dc7c7a29e8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="標楷體" size="8" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[棟數]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-23" stretchType="RelativeToBandHeight" x="0" y="40" width="842" height="20" uuid="223784a6-f35d-4006-a5b1-c1e38f172866">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" size="16" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ORGAN}+"核發建築物拆除執照統計-按構造別分(續)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17">
+			<subreport overflowType="Stretch">
+				<reportElement x="0" y="0" width="842" height="17" uuid="3744f353-ab9d-44f9-9f05-455feb8cd491">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subjectRowData2})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportpath2}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="842" height="14" uuid="f4aaefaa-cbc4-4b97-bb9d-4febae6a1dcf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA["填表　　　　　　　　　　　　　　審核　　　　　　　　　　　　業務主管人員　　　　　　　　　　　　機關首長　　　　　　　　　　　　　　　　　"+$F{DATE2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="14" width="842" height="35" uuid="c9f1b7d4-cdb7-4c0b-a095-1b2c65a0dfbd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box leftPadding="10"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="標楷體" size="9" pdfFontName="kaiu.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　主辦統計人員
+資料來源：依據ｏｏ縣(市)政府、處、局資料彙編。
+填表說明：本表編製2份，經陳核後，1份送主計處(室)，1份自存外，資料並經由網際網路報送內政部國土管理署統計資料庫。]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

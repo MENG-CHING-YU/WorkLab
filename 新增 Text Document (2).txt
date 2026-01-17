@@ -1,0 +1,67 @@
+bmsta_seqno            varchar(32)   -- 唯一序號
+bmsta_stakind          varchar(20)   -- 統計類別
+bmsta_yymm             varchar(6)    -- 報表年月
+bmsta_organ            varchar(8)    -- 統計縣市別
+bmsta_dist             varchar(8)    -- 統計行政區
+bmsta_licyear          varchar(4)    -- 發證年度
+bmsta_lickind          varchar(20)   -- 執照字軌
+bmsta_licno1           varchar(20)   -- 執照號碼
+bmsta_identifycodedate varchar(8)    -- 認證日期
+bmsta_receiveicedate  varchar(8)    -- 收件日期
+bmsta_prestartdate    varchar(8)    -- 預定開工日期
+bmsta_wktqy            varchar(2)    -- 開工數
+bmsta_finishdate      varchar(8)    -- 完工日期
+
+bmsta_areatotal        numeric(16,4) -- 基地面積
+bmsta_onefloorarea    numeric(16,4) -- 地面層面積(一樓面積)
+bmsta_totgrarea       numeric(16,4) -- 地上層面積(地上層總樓地板面積)
+bmsta_totdnarea       numeric(16,4) -- 地下層面積(地下層總樓地板面積)
+bmsta_buildheight     numeric(12,2) -- 建物高度
+
+bmsta_usecode         varchar(10)   -- 統計使用分區
+bmsta_usagecode       varchar(10)   -- 統計用途別
+bmsta_buildkindtype   varchar(10)   -- 統計構造別
+
+bmsta_glfrsum         int4          -- 地上層數
+bmsta_gufrsum         int4          -- 地下層數
+bmsta_buildtype       varchar(10)   -- 建築規劃
+bmsta_tothousesum     int4          -- 戶數
+bmsta_buildsum        int4          -- 棟數
+
+bmsta_contprice       numeric(16)   -- 工程造價
+bmsta_buildname       varchar(200)  -- 工程名稱
+bmsta_baddr           varchar(200)  -- 工程地址
+bmsta_price           numeric(16)   -- 工程總價
+
+bmsta_relstartdate    varchar(8)    -- 實際開工日
+bmsta_extstartdt      varchar(8)    -- 開工展期日期
+
+bmsta_p01tel          varchar(20)   -- 起造人電話
+bmsta_p01addr         varchar(200)  -- 起造人戶籍地址
+bmsta_p01conaddr      varchar(200)  -- 起造人通訊處
+bmsta_p01name         varchar(100)  -- 起造人姓名
+
+bmsta_p04no            varchar(40)  -- 承造人字號
+bmsta_p04name          varchar(100) -- 承造人名稱
+bmsta_p04tel           varchar(20)  -- 承造人電話
+bmsta_p04addr          varchar(200) -- 承造人地址
+
+bmsta_p03name          varchar(100) -- 監造人姓名
+bmsta_p03tel           varchar(20)  -- 監造人電話
+bmsta_p03addr          varchar(200) -- 監造人地址
+
+bmsta_totalconarea     numeric(16,4)-- 總樓地板面積
+bmsta_prefinishdt     varchar(8)    -- 預定竣工日期
+
+bmsta_createdtime     varchar(20)   -- 建檔時間
+bmsta_createuserid    varchar(100)  -- 建檔人員
+bmsta_mntdatetime     varchar(20)   -- 異動時間
+bmsta_mntuserid       varchar(100)  -- 異動人員
+
+bmsta_indexkey        varchar(20)   -- 索引鍵
+bmsta_lidesc          varchar(40)   -- 完整動態說明
+bmsta_chkmsg          varchar(200)  -- 檢核結果
+
+bmsta_oldlicyear      varchar(4)    -- 舊照發證年度
+bmsta_oldlickind      varchar(20)   -- 舊照執照字軌
+bmsta_oldlicno1       varchar(20)   -- 舊照號碼
