@@ -21,13 +21,13 @@ public class bmss20536010102r extends IReportObject {
     private String ORGAN;
     private String REPSOURCE;
 
-    /** 原本封裝的 SQL 出口，保留 */
     private String sSQL = "";
 
     /** 用途別排序 */
     private static final int[] PROCESS_ORDER_USAGE = {
         11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 20, 99, 98
     };
+    
     /** 構造別排序 */
     private static final int[] PROCESS_ORDER_STRUCTURE = {
         1, 2, 3, 4, 5, 6, 7, 8, 9, 99
@@ -66,21 +66,21 @@ public class bmss20536010102r extends IReportObject {
 
     @Override
     public List getData() {
-    	if (REPSOURCE.equals("20536010102")) {
-			getParameters().put("subreportpath1", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-					+ "20536010102" + File.separatorChar + "20536_02_01_2_subreport1.jasper");
-			getParameters().put("subreportpath2", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-					+ "20536010102" + File.separatorChar + "20536_02_01_2_subreport2.jasper");
-			getParameters().put("subreportpath3", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-					+ "20536010102" + File.separatorChar + "20536_02_01_2_subreport3.jasper");
-			getParameters().put("subreportpath4", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-					+ "20536010102" + File.separatorChar + "20536_02_01_2_subreport4.jasper");
-			getParameters().put("subreportpath5", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-					+ "20536010102" + File.separatorChar + "20536_02_01_2_subreport5.jasper");
-		}
+        if (REPSOURCE.equals("20536010102")) {
+            getParameters().put("subreportpath1", getMaliContext().getWebRealPath() + "report" + File.separatorChar
+                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport1.jasper");
+            getParameters().put("subreportpath2", getMaliContext().getWebRealPath() + "report" + File.separatorChar
+                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport2.jasper");
+            getParameters().put("subreportpath3", getMaliContext().getWebRealPath() + "report" + File.separatorChar
+                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport3.jasper");
+            getParameters().put("subreportpath4", getMaliContext().getWebRealPath() + "report" + File.separatorChar
+                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport4.jasper");
+            getParameters().put("subreportpath5", getMaliContext().getWebRealPath() + "report" + File.separatorChar
+                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport5.jasper");
+        }
 
-        getParameters().put("subjectRowData1", getSubDataBuildUsageMain());
-        getParameters().put("subjectRowData2", getSubDataBuildUsageSub());
+        getParameters().put("subjectRowData1", getSubDataBuildStructure());
+        getParameters().put("subjectRowData2", getSubDataBuildStructure());
         getParameters().put("subjectRowData3", getSubDataBuildStructure());
         getParameters().put("subjectRowData4", getSubDataDemolishUsage());
         getParameters().put("subjectRowData5", getSubDataDemolishStructure());
@@ -152,172 +152,135 @@ public class bmss20536010102r extends IReportObject {
         return subDataList;
     }
 
-  
-
     /** 建造－用途別 */
     private String buildSqlBuildByUsage() {
-        return
-        		sSQL =
-        	    "SELECT " +
-        	    "    bmsta_usagecode, " +
-        	    "    SUM(icount)        AS icount, " +
-        	    "    SUM(ifloorArea)    AS ifloorArea, " +
-        	    "    SUM(iconstruction) AS iconstruction " +
-        	    "FROM ( " +
-        	    "    SELECT " +
-        	    "        bmsta_usagecode, " +
-        	    "        COUNT(1) AS icount, " +
-        	    "        ROUND( " +
-        	    "            SUM( " +
-        	    "                COALESCE(bmsta_totgrarea, 0) " +
-        	    "              + COALESCE(bmsta_totdnarea, 0) " +
-        	    "            ), 0 " +
-        	    "        ) AS ifloorArea, " +
-        	    "        ROUND(SUM(COALESCE(bmsta_contprice, 0)) / 1000, 0) AS iconstruction " +
-        	    ") a " +
-        	    "GROUP BY bmsta_usagecode";
+        return sSQL =
+            "SELECT bmsta_usagecode, " +
+            "  SUM(icount) icount, " +
+            "  SUM(ifloorArea) ifloorArea, " +
+            "  SUM(iconstruction) iconstruction " +
+            "FROM ( " +
+            "  SELECT bmsta_usagecode, " +
+            "    COUNT(1) icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) ifloorArea, " +
+            "    ROUND(SUM(COALESCE(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '01' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_usagecode, '') IN ('11','12','13','14','15','16','17','18','19','21','20','98') " +
+            "  GROUP BY bmsta_usagecode " +
+            "  UNION ALL " +
+            "  SELECT '99' bmsta_usagecode, " +
+            "    COUNT(1) icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) ifloorArea, " +
+            "    ROUND(SUM(COALESCE(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '01' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_usagecode, '') NOT IN ('11','12','13','14','15','16','17','18','19','21','20') " +
+            ") a " +
+            "GROUP BY bmsta_usagecode";
     }
-
 
     /** 建造－構造別 */
     private String buildSqlBuildByStructure() {
-        return
-        		sSQL =
-        	    "select " +
-        	    "    bmsta_buildkindtype, " +
-        	    "    sum(icount) icount, " +
-        	    "    sum(ibuildsum) ibuildsum, " +
-        	    "    sum(ifloorArea) ifloorArea, " +
-        	    "    sum(iconstruction) iconstruction " +
-        	    "from ( " +
-
-        	    "    select " +
-        	    "        bmsta_buildkindtype, " +
-        	    "        count(1) icount, " +
-        	    "        round(sum(coalesce(bmsta_buildsum, 0)), 0) ibuildsum, " +
-        	    "        round(sum(coalesce(bmsta_totgrarea, 0) + coalesce(bmsta_totdnarea, 0)), 0) ifloorArea, " +
-        	    "        round(sum(coalesce(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
-        	    "    from bmsstaraw " +
-        	    "    where bmsta_stakind = '01' " +                    
-        	    "      and bmsta_yymm = '" + YYY + MM + "' " +
-        	    "      and bmsta_organ = '" + ORGAN + "' " +
-        	    "      and coalesce(bmsta_buildkindtype, '') in ('1','2','3','4','5','6','7','8','9','98') " +
-        	    "    group by bmsta_buildkindtype " +
-
-        	    "    union all " +
-
-        	    "    select " +
-        	    "        '99' bmsta_buildkindtype, " +
-        	    "        count(1) icount, " +
-        	    "        round(sum(coalesce(bmsta_buildsum, 0)), 0) ibuildsum, " +
-        	    "        round(sum(coalesce(bmsta_totgrarea, 0) + coalesce(bmsta_totdnarea, 0)), 0) ifloorArea, " +
-        	    "        round(sum(coalesce(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
-        	    "    from bmsstaraw " +
-        	    "    where bmsta_stakind = '01' " +               
-        	    "      and bmsta_yymm = '" + YYY + MM + "' " +
-        	    "      and bmsta_organ = '" + ORGAN + "' " +
-        	    "      and coalesce(bmsta_buildkindtype, '') not in ('1','2','3','4','5','6','7','8','9') " +
-
-        	    ") a " +
-        	    "group by bmsta_buildkindtype";
-
+        return sSQL =
+            "SELECT bmsta_buildkindtype, " +
+            "  SUM(icount) icount, " +
+            "  SUM(ibuildsum) ibuildsum, " +
+            "  SUM(ifloorArea) ifloorArea, " +
+            "  SUM(iconstruction) iconstruction " +
+            "FROM ( " +
+            "  SELECT bmsta_buildkindtype, " +
+            "    COUNT(1) icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_buildsum, 0)), 0) ibuildsum, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) ifloorArea, " +
+            "    ROUND(SUM(COALESCE(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '01' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_buildkindtype, '') IN ('1','2','3','4','5','6','7','8','9','98') " +
+            "  GROUP BY bmsta_buildkindtype " +
+            "  UNION ALL " +
+            "  SELECT '99' bmsta_buildkindtype, " +
+            "    COUNT(1) icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_buildsum, 0)), 0) ibuildsum, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) ifloorArea, " +
+            "    ROUND(SUM(COALESCE(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '01' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_buildkindtype, '') NOT IN ('1','2','3','4','5','6','7','8','9') " +
+            ") a " +
+            "GROUP BY bmsta_buildkindtype";
     }
 
     /** 拆除－用途別 */
     private String buildSqlDemolishByUsage() {
-        return
-        		sSQL =
-        	    "SELECT " +
-        	    "    bmsta_usagecode, " +
-        	    "    SUM(icount)        AS icount, " +
-        	    "    SUM(itothousesum)  AS itothousesum, " +
-        	    "    SUM(ifloorArea)    AS ifloorArea, " +
-        	    "    SUM(iconstruction) AS iconstruction " +
-        	    "FROM ( " +
-        	    "    SELECT " +
-        	    "        bmsta_usagecode, " +
-        	    "        COUNT(1) AS icount, " +
-        	    "        ROUND(SUM(COALESCE(bmsta_tothousesum, 0)), 0) AS itothousesum, " +
-        	    "        ROUND( " +
-        	    "            SUM( " +
-        	    "                COALESCE(bmsta_totgrarea, 0) " +
-        	    "              + COALESCE(bmsta_totdnarea, 0) " +
-        	    "            ), 0 " +
-        	    "        ) AS ifloorArea, " +
-        	    "        ROUND(SUM(COALESCE(bmsta_contprice, 0)) / 1000, 0) AS iconstruction " +
-        	    "    FROM bmsstaraw " +
-        	    "    WHERE bmsta_stakind = '02' " +
-        	    "      AND bmsta_yymm = '" + YYY + MM + "' " +
-        	    "      AND bmsta_organ = '" + ORGAN + "' " +
-        	    "      AND COALESCE(bmsta_usagecode, '') IN " +
-        	    "          ('11','12','13','14','15','16','17','18','19','21','20','98') " +
-        	    "    GROUP BY bmsta_usagecode " +
-
-        	    "    UNION ALL " +
-
-        	    "    SELECT " +
-        	    "        '99' AS bmsta_usagecode, " +
-        	    "        COUNT(1) AS icount, " +
-        	    "        ROUND(SUM(COALESCE(bmsta_tothousesum, 0)), 0) AS itothousesum, " +
-        	    "        ROUND( " +
-        	    "            SUM( " +
-        	    "                COALESCE(bmsta_totgrarea, 0) " +
-        	    "              + COALESCE(bmsta_totdnarea, 0) " +
-        	    "            ), 0 " +
-        	    "        ) AS ifloorArea, " +
-        	    "        ROUND(SUM(COALESCE(bmsta_contprice, 0)) / 1000, 0) AS iconstruction " +
-        	    "    FROM bmsstaraw " +
-        	    "    WHERE bmsta_stakind = '02' " +
-        	    "      AND bmsta_yymm = '" + YYY + MM + "' " +
-        	    "      AND bmsta_organ = '" + ORGAN + "' " +
-        	    "      AND COALESCE(bmsta_usagecode, '') NOT IN " +
-        	    "          ('11','12','13','14','15','16','17','18','19','21','20') " +
-        	    ") a " +
-        	    "GROUP BY bmsta_usagecode";
+        return sSQL =
+            "SELECT bmsta_usagecode, " +
+            "  SUM(icount) AS icount, " +
+            "  SUM(itothousesum) AS itothousesum, " +
+            "  SUM(ifloorArea) AS ifloorArea " +
+            "FROM ( " +
+            "  SELECT bmsta_usagecode, " +
+            "    COUNT(1) AS icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_tothousesum, 0)), 0) AS itothousesum, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) AS ifloorArea " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '04' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_usagecode, '') IN ('11','12','13','14','15','16','17','18','19','21','20','98') " +
+            "  GROUP BY bmsta_usagecode " +
+            "  UNION ALL " +
+            "  SELECT '99' AS bmsta_usagecode, " +
+            "    COUNT(1) AS icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_tothousesum, 0)), 0) AS itothousesum, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) AS ifloorArea " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '04' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_usagecode, '') NOT IN ('11','12','13','14','15','16','17','18','19','21','20') " +
+            ") a " +
+            "GROUP BY bmsta_usagecode";
     }
 
     /** 拆除－構造別 */
     private String buildSqlDemolishByStructure() {
-        return
-        		sSQL =
-        	    "select " +
-        	    "    bmsta_buildkindtype, " +
-        	    "    sum(icount) icount, " +
-        	    "    sum(ibuildsum) ibuildsum, " +
-        	    "    sum(ifloorArea) ifloorArea, " +
-        	    "    sum(iconstruction) iconstruction " +
-        	    "from ( " +
-
-        	    "    select " +
-        	    "        bmsta_buildkindtype, " +
-        	    "        count(1) icount, " +
-        	    "        round(sum(coalesce(bmsta_buildsum, 0)), 0) ibuildsum, " +
-        	    "        round(sum(coalesce(bmsta_totgrarea, 0) + coalesce(bmsta_totdnarea, 0)), 0) ifloorArea, " +
-        	    "        round(sum(coalesce(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
-        	    "    from bmsstaraw " +
-        	    "    where bmsta_stakind = '02' " +                    
-        	    "      and bmsta_yymm = '" + YYY + MM + "' " +
-        	    "      and bmsta_organ = '" + ORGAN + "' " +
-        	    "      and coalesce(bmsta_buildkindtype, '') in ('1','2','3','4','5','6','7','8','9','98') " +
-        	    "    group by bmsta_buildkindtype " +
-
-        	    "    union all " +
-
-        	    "    select " +
-        	    "        '99' bmsta_buildkindtype, " +
-        	    "        count(1) icount, " +
-        	    "        round(sum(coalesce(bmsta_buildsum, 0)), 0) ibuildsum, " +
-        	    "        round(sum(coalesce(bmsta_totgrarea, 0) + coalesce(bmsta_totdnarea, 0)), 0) ifloorArea, " +
-        	    "        round(sum(coalesce(bmsta_contprice, 0)) / 1000, 0) iconstruction " +
-        	    "    from bmsstaraw " +
-        	    "    where bmsta_stakind = '02' " +                     
-        	    "      and bmsta_yymm = '" + YYY + MM + "' " +
-        	    "      and bmsta_organ = '" + ORGAN + "' " +
-        	    "      and coalesce(bmsta_buildkindtype, '') not in ('1','2','3','4','5','6','7','8','9') " +
-
-        	    ") a " +
-        	    "group by bmsta_buildkindtype";
-
+        return sSQL =
+            "SELECT bmsta_buildkindtype, " +
+            "  SUM(icount) icount, " +
+            "  SUM(ibuildsum) ibuildsum, " +
+            "  SUM(ifloorArea) ifloorArea " +
+            "FROM ( " +
+            "  SELECT bmsta_buildkindtype, " +
+            "    COUNT(1) icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_buildsum, 0)), 0) ibuildsum, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) ifloorArea " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '04' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_buildkindtype, '') IN ('1','2','3','4','5','6','7','8','9','98') " +
+            "  GROUP BY bmsta_buildkindtype " +
+            "  UNION ALL " +
+            "  SELECT '99' bmsta_buildkindtype, " +
+            "    COUNT(1) icount, " +
+            "    ROUND(SUM(COALESCE(bmsta_buildsum, 0)), 0) ibuildsum, " +
+            "    ROUND(SUM(COALESCE(bmsta_totgrarea, 0) + COALESCE(bmsta_totdnarea, 0)), 0) ifloorArea " +
+            "  FROM bmsstaraw " +
+            "  WHERE bmsta_stakind = '04' " +
+            "    AND bmsta_yymm = '" + YYY + MM + "' " +
+            "    AND bmsta_organ = '" + ORGAN + "' " +
+            "    AND COALESCE(bmsta_buildkindtype, '') NOT IN ('1','2','3','4','5','6','7','8','9') " +
+            ") a " +
+            "GROUP BY bmsta_buildkindtype";
     }
 
     private Map<String, long[]> fetchUsageData(String sql) {
