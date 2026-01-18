@@ -62,44 +62,38 @@ public class bmss20536010102r extends IReportObject {
         return "";
     }
 
-    HashMap subjectmap = new HashMap();
-
-    @Override
-    public List getData() {
-        if (REPSOURCE.equals("20536010102")) {
-            getParameters().put("subreportpath1", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport1.jasper");
-            getParameters().put("subreportpath2", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport2.jasper");
-            getParameters().put("subreportpath3", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport3.jasper");
-            getParameters().put("subreportpath4", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport4.jasper");
-            getParameters().put("subreportpath5", getMaliContext().getWebRealPath() + "report" + File.separatorChar
-                    + "20536010102" + File.separatorChar + "20536_02_01_2_subreport5.jasper");
-        }
-
-        getParameters().put("subjectRowData1", getSubDataBuildStructure());
-        getParameters().put("subjectRowData2", getSubDataBuildStructure());
-        getParameters().put("subjectRowData3", getSubDataBuildStructure());
-        getParameters().put("subjectRowData4", getSubDataDemolishUsage());
-        getParameters().put("subjectRowData5", getSubDataDemolishStructure());
-
-        List<Map<String, Object>> masterData = new ArrayList<>();
-
-        String DATE1 = String.format("中華民國 %s 年 %s 月", YYY, MM);
-        subjectmap.put("ORGAN",
-                commonbean.getCodeName(publicKeyUtility.KEY_PUB_主管機關Array, ORGAN));
-        subjectmap.put("DATE1", DATE1);
-        subjectmap.put("DATE2",
-                "中華民國" + commonbean.ShowCDate(
-                        commonbean.ShowDate(),
-                        new String[] { "年", "月", "日" }) + "編製");
-
-        masterData.add(subjectmap);
-        return masterData;
+    
+@Override
+public List getData() {
+    if (REPSOURCE.equals("20536010102")) {
+        // 設定子報表路徑
+        String basePath = getMaliContext().getWebRealPath() + "report" + File.separatorChar + "20536010102" + File.separatorChar;
+         
+        getParameters().put("subreportpath1", basePath + "20536_02_01_2_subreport1.jasper");
+        getParameters().put("subreportpath2", basePath + "20536_02_01_2_subreport2.jasper");
+        getParameters().put("subreportpath3", basePath + "20536_02_01_2_subreport3.jasper");
+        getParameters().put("subreportpath4", basePath + "20536_02_01_2_subreport4.jasper");
+        getParameters().put("subreportpath5", basePath + "20536_02_01_2_subreport5.jasper");
     }
 
+ Map<String, Object> subjectmap = new HashMap<>();
+    getParameters().put("subjectRowData1", getSubDataBuildUsageMain());    // 建造-用途別(主)
+    getParameters().put("subjectRowData2", getSubDataBuildUsageSub());     // 建造-用途別(次)
+    getParameters().put("subjectRowData3", getSubDataBuildStructure());    // 建造-構造別
+    getParameters().put("subjectRowData4", getSubDataDemolishUsage());     // 拆除-用途別
+    getParameters().put("subjectRowData5", getSubDataDemolishStructure()); // 拆除-構造別
+
+    // 主報表資料
+    List<Map<String, Object>> masterData = new ArrayList<>();
+
+    String DATE1 = String.format("中華民國 %s 年 %s 月", YYY, MM);
+    subjectmap.put("ORGAN", commonbean.getCodeName(publicKeyUtility.KEY_PUB_主管機關Array, ORGAN));
+    subjectmap.put("DATE1", DATE1);
+    subjectmap.put("DATE2", "中華民國" + commonbean.ShowCDate(commonbean.ShowDate(), new String[] { "年", "月", "日" }) + "編製");
+
+    masterData.add(subjectmap);
+    return masterData;
+}
     public List<Map<String, Object>> getSubDataBuildUsageMain() {
         Map<String, long[]> usageData = fetchUsageData(buildSqlBuildByUsage());
         List<Map<String, Object>> subDataList = new ArrayList<>();
